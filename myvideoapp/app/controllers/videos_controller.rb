@@ -4,7 +4,7 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
-  def find
+  def show
     @video = Video.find(params[:id])
     # give chart thing its data
   end
