@@ -1,24 +1,23 @@
-# README
+# My Video App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation instructions
 
-Things you may want to cover:
+This application is just a Rails 5 application with a basic index and analytics. Here are the installation instructions:
 
-* Ruby version
+```
+rails db:seed
+rails db:migrate
+bundle install
+rails s
+```
 
-* System dependencies
+The seed file may take a couple of minutes to run as it simulates usage data.
 
-* Configuration
+## Usage instructions
 
-* Database creation
+You should be automatically directed to http://localhost:3000 upon starting the application.
 
-* Database initialization
+The application will start with a list of all the videos. Click on any of them in order to view analytics data about the video.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Gem information
+This application uses ChartKick as well as HighCharts. They're useful gems for writing simple graph implementations.
