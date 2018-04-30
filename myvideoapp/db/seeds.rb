@@ -6,13 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# need to write out a a seed file for distributed data
 require 'faker'
-require 'distribution'
 
-def seedUsage(video, user)
-  @distribution = Distribution::ChiSquare.cdf(Random.rand(), 1)
-  @usage = Usage.create!(video_id: video.id, user_id: user.id, view_time: 100 * @distribution)
+def seedUsage(video, user, time)
+  @usage = Usage.create!(video_id: video.id, user_id: user.id, view_time: time)
   if !@usage.save
     throw `Could not save video_usage with errors: #{@usage.errors.full_messages}`
   end
@@ -48,8 +45,20 @@ def seedFile
 
   @myVideos = Video.all
   @myUsers = User.all
-  100.times do
-    seedUsage(@myVideos.sample, @myUsers.sample)
+  Video.all.each do |vid|
+
+    rand(750...1000).times do
+      seedUsage(vid, @myUsers.sample, 25)
+    end
+    rand(500...750).times do
+      seedUsage(vid, @myUsers.sample, 50)
+    end
+    rand(250...500).times do
+      seedUsage(vid, @myUsers.sample, 75)
+    end
+    rand(1...250).times do
+      seedUsage(vid, @myUsers.sample, 100)
+    end
   end
 
 end

@@ -1,3 +1,19 @@
-<h1>
-  hey dude
-</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>
+      Videos
+    </h1>
+    <ul>
+    <% @videos.each do |vid| %>
+    <li>
+    <%= link_to vid.name,vid %>
+    </li>
+    <% end %>
+  </ul>
+  </body>
+</html>

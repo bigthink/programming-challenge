@@ -1,3 +1,12 @@
-<h1>
-  <%= pie_chart Video.group(:name).count %>
-</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Video Usage Data</title>
+  </head>
+  <body>
+    <%= column_chart @video.usages.group(:view_time).count, xtitle: 'Viewership Percentile', ytitle:
+    'Number of Users' %>
+  </body>
+  <%= link_to 'Return to Index', videos_path %>
+</html>
