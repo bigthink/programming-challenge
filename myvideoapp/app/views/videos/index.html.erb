@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class='container'>
+      <h1>
+        Videos
+      </h1>
+      Here are the list of videos. Click any to see analytics data.
+      <ul>
+      <% @videos.each do |vid| %>
+      <li>
+      <%= link_to vid.name,vid %>
+      </li>
+      <% end %>
+    </ul>
+    </div>
+  </body>
+</html>

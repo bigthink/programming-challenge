@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Video Usage Data</title>
+  </head>
+  <body>
+    <div class='container'>
+      <h1> Video: <%= @video.name %> </h1>
+      <%= column_chart @video.usages.group(:view_time).count, xtitle: 'Viewership Percentile', ytitle:
+      'Number of Users' %>
+      <%= link_to 'Return to Index', videos_path %>
+    </div>
+  </body>
+
+</html>
