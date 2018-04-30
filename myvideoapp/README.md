@@ -5,8 +5,8 @@
 This application is just a Rails 5 application with a basic index and analytics. Here are the installation instructions:
 
 ```
-rails db:seed
 rails db:migrate
+rails db:seed
 bundle install
 rails s
 ```
